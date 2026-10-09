@@ -45,13 +45,21 @@ public class ExampleMod
 
     // Creates a new Block with the id "examplemod:example_block", combining the namespace and path
     public static final RegistryObject<Block> EXAMPLE_BLOCK = BLOCKS.register("example_block", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)));
+
+    //creacion de bloque
+    public static final RegistryObject<Block> RUBY_ORE = BLOCKS.register("ruby_ore", ()-> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(3.0f,3.0f)));
+
     // Creates a new BlockItem with the id "examplemod:example_block", combining the namespace and path
     public static final RegistryObject<Item> EXAMPLE_BLOCK_ITEM = ITEMS.register("example_block", () -> new BlockItem(EXAMPLE_BLOCK.get(), new Item.Properties()));
+
+    //Creacion de item bloque
+    public static final RegistryObject<Item> RUBY_ORE_ITEM = ITEMS.register("ruby_ore", () -> new BlockItem(RUBY_ORE.get(), new Item.Properties()));
 
     // Creates a new food item with the id "examplemod:example_id", nutrition 1 and saturation 2
     public static final RegistryObject<Item> EXAMPLE_ITEM = ITEMS.register("example_item", () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
             .alwaysEat().nutrition(1).saturationMod(2f).build())));
     
+    //Creacion de items
     public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", () -> new Item(new Item.Properties()));
 
     // Creates a creative tab with the id "examplemod:example_tab" for the example item, that is placed after the combat tab
@@ -61,6 +69,7 @@ public class ExampleMod
             .displayItems((parameters, output) -> {
                 output.accept(RUBY.get());
                 output.accept(EXAMPLE_ITEM.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
+                output.accept(RUBY_ORE_ITEM.get());
             }).build());
 
     public ExampleMod(FMLJavaModLoadingContext context)
