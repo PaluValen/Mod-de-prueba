@@ -47,7 +47,10 @@ public class ExampleMod
     public static final RegistryObject<Block> EXAMPLE_BLOCK = BLOCKS.register("example_block", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)));
 
     //creacion de bloque
-    public static final RegistryObject<Block> RUBY_ORE = BLOCKS.register("ruby_ore", ()-> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(3.0f,3.0f)));
+    public static final RegistryObject<Block> RUBY_ORE = BLOCKS.register("ruby_ore", ()-> new Block(BlockBehaviour.Properties
+        .of().mapColor(MapColor.STONE)
+        .strength(3.0f,3.0f)
+        .requiresCorrectToolForDrops()));
 
     // Creates a new BlockItem with the id "examplemod:example_block", combining the namespace and path
     public static final RegistryObject<Item> EXAMPLE_BLOCK_ITEM = ITEMS.register("example_block", () -> new BlockItem(EXAMPLE_BLOCK.get(), new Item.Properties()));
