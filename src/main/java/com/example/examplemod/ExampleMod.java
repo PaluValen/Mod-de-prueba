@@ -52,11 +52,19 @@ public class ExampleMod
         .strength(3.0f,3.0f)
         .requiresCorrectToolForDrops()));
 
+
+    public static final RegistryObject<Block> RUBY_BLOCK = BLOCKS.register("ruby_block", () -> new Block(BlockBehaviour.Properties
+        .of().mapColor(MapColor.COLOR_RED)
+        .strength(2.0f,2.0f)
+    ));
+
     // Creates a new BlockItem with the id "examplemod:example_block", combining the namespace and path
     public static final RegistryObject<Item> EXAMPLE_BLOCK_ITEM = ITEMS.register("example_block", () -> new BlockItem(EXAMPLE_BLOCK.get(), new Item.Properties()));
 
     //Creacion de item bloque
     public static final RegistryObject<Item> RUBY_ORE_ITEM = ITEMS.register("ruby_ore", () -> new BlockItem(RUBY_ORE.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> RUBY_BLOCK_ITEM = ITEMS.register("ruby_block", () -> new BlockItem(RUBY_BLOCK.get(), new Item.Properties()));
 
     // Creates a new food item with the id "examplemod:example_id", nutrition 1 and saturation 2
     public static final RegistryObject<Item> EXAMPLE_ITEM = ITEMS.register("example_item", () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
@@ -73,6 +81,7 @@ public class ExampleMod
                 output.accept(RUBY.get());
                 output.accept(EXAMPLE_ITEM.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
                 output.accept(RUBY_ORE_ITEM.get());
+                output.accept(RUBY_BLOCK_ITEM.get());
             }).build());
 
     public ExampleMod(FMLJavaModLoadingContext context)
